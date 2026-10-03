@@ -1,0 +1,23 @@
+# Secrets — never commit
+.env
+
+
+
+
+.env.*
+!.env.example
+
+# uv / Python
+.venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+
+# marimo
+.marimo/
+__marimo__/
+*.marimo
+
+# Generated output
+*.html
+*.png

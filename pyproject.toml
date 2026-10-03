@@ -1,0 +1,23 @@
+[project]
+name = "quantum-qiskit"
+version = "0.1.0"
+requires-python = ">=3.12"
+dependencies = [
+    "marimo>=0.25.0",
+    "python-dotenv>=1.2.4",
+    "qiskit-aer>=0.17.2",
+    "qiskit-ibm-runtime>=0.50.0",
+    "qiskit[visualization]>=2.5.2",
+]
+
+[dependency-groups]
+dev = [
+    "ty>=0.0.84",
+]
+
+[tool.ruff.lint.per-file-ignores]
+# F401 (unused-import) is a false positive in marimo notebooks: cell 1 imports
+# `mo` and returns it so later cells can call `mo.md(...)`, but the linter only
+# looks for uses within the defining cell. Removing the import breaks the
+# notebook with `name 'mo' is not defined`.
+"hello_world_marimo.py" = ["F401"]
